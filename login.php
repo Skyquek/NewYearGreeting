@@ -6,6 +6,9 @@ if(isset($_GET["info"])){
     elseif($_GET["info"] == '2'){
         echo '<script>alert("Please login first.");</script>';
     }
+    elseif($_GET["info"] == '3'){
+        echo '<script>alert("You have logged.");</script>';
+    }
 }
 
 ?>

@@ -7,7 +7,6 @@ $users = array(
 );
 
 session_start();
-echo 'in';
 
 if(isset($_POST['login'])){
         
@@ -33,6 +32,7 @@ elseif(!isset($_SESSION['userName'])){
 
 elseif(isset($_POST['logout'])){
     session_destroy();
+    header("location:login.php?info=3");
 }
 
 ?>
