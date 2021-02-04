@@ -1,3 +1,4 @@
+<?php include 'session.php'; ?>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
@@ -22,7 +23,7 @@ img {
 	</div>
 
 	<div id="gift-card">
-		<img src="assets/img/card-wish.jpg" alt="gift-card"> 
+		<img src=<?php echo "assets/img/".$_SESSION['path'];?> alt="gift-card"> 
 	</div>
 
 </body>
