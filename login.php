@@ -48,7 +48,7 @@ if(isset($_GET["info"])){
 Login
 </span>
 <div class="wrap-input100 validate-input m-b-16" data-validate="Valid email is required: ex@abc.xyz">
-<input class="input100" type="text" name="userName" placeholder="Email">
+<input class="input100" type="text" name="userName" placeholder="Username">
 <span class="focus-input100"></span>
 <span class="symbol-input100">
 <span class="lnr lnr-envelope"></span>
