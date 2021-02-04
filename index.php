@@ -52,6 +52,65 @@ a {
 	text-decoration: none;
 	color: white;
 }
+
+/*Firework*/
+* {
+	box-sizing: border-box;
+}
+
+button {
+	background-color: rebeccapurple;
+	border-radius: 5px;
+	box-shadow: 4px 4px 5px rgba(255, 255, 255, 0.15);
+	border: none;
+	color: white;
+	cursor: pointer;
+	padding: 1rem 2rem;
+	position: relative;
+	transition: transform 0.1s linear, box-shadow 0.1s linear;
+	z-index: 10;
+}
+
+button:active {
+	transform: translate(4px, 4px);
+	box-shadow: 0 0 0 rebeccapurple;
+}
+
+button:focus {
+	outline: none;
+}
+
+.particle {
+	--x: 0;
+	--y: 0;
+	background-color: rebeccapurple;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 5px;
+	width: 5px;
+	z-index: -1;
+}
+
+.particle.move {
+	animation: move 1000ms linear forwards;
+}
+
+@keyframes move {
+	to {
+		transform: translate(var(--x), var(--y));
+	}
+	
+	95% {
+		opacity: 1;
+	}
+	
+	100% {
+		opacity: 0;
+	}
+}
+/**********************************/
 </style>
 </head>
 
@@ -70,6 +129,8 @@ a {
 
 		</div>
 	</nav>
+
+	<button id="btn"> Make it Fire </button>
 
 	<div id="angpau">
 		<img src="assets/img/angpauicon.jpg" alt="ang-pau" width="500" height="600"> 
