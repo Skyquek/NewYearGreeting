@@ -1,3 +1,4 @@
+<?php include 'session.php'; ?>
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -98,7 +99,7 @@ a {
 					  </div>
 
 					<div class="modal-body">
-						<img src="assets/img/card-wish.jpg" alt="gift-card" width="100%"> 
+						<img src='<?php echo "assets/img/".$_SESSION['path'];?>' alt="gift-card" width="100%"> 
 					</div>
 					
 				</div>
