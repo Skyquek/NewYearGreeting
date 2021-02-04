@@ -185,11 +185,15 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #0250c5;
+  /*background: #0250c5;
   background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -o-linear-gradient(bottom, #0250c5, #d43f8d);
   background: -moz-linear-gradient(bottom, #0250c5, #d43f8d);
-  background: linear-gradient(bottom, #0250c5, #d43f8d);
+  background: linear-gradient(bottom, #0250c5, #d43f8d);*/
+  background-image: url("img/logina.jpg");
+	background-color: #cccccc;
+	background-size: cover;
+	background-repeat: no-repeat;
   position: relative;
   z-index: 1;
 }
@@ -211,7 +215,7 @@ iframe {
 
 .wrap-login100 {
   width: 450px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 3px;
   overflow: hidden;
 }
