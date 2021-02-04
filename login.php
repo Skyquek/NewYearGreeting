@@ -1,3 +1,15 @@
+<?php
+if(isset($_GET["info"])){
+    if($_GET["info"] == '1'){
+        echo '<script>alert("No this user.");</script>';
+    }
+    elseif($_GET["info"] == '2'){
+        echo '<script>alert("Please login first.");</script>';
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <!-- saved from url=(0048)https://colorlib.com/etc/lf/Login_v11/index.html -->
 <html lang="en">

@@ -28,7 +28,7 @@ if(isset($_POST['login'])){
 }
 
 elseif(!isset($_SESSION['userName'])){
-    header("location:login.php?info=0");
+    header("location:login.php?info=2");
 }
 
 elseif(isset($_POST['logout'])){
