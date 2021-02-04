@@ -164,7 +164,9 @@ button:focus {
 <script>
 $("#angpau").click(function() {
 
-	var fire = setInterval('firework()', 1000);
+	var fire;
+	clearInterval(fire);
+	fire = setInterval('firework()', 100);
 
 	setTimeout(function(){ 
 		clearInterval(fire); 
