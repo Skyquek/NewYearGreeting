@@ -18,6 +18,10 @@
 	bottom: 0;
 }
 
+#angpau:hover {
+	cursor: pointer;
+}
+
 #gift-card {
 	display: none;
 }
@@ -123,29 +127,16 @@ button:focus {
 
 			<ul class="nav navbar-nav pull-right">
 				<form action="session.php" method="POST">
-					<button class="btn navbar-btn btn-warning navbar-right" name="logout" role="button" type="submit" href="#">Logout</button>
+					<button class="btn navbar-btn btn-warning navbar-right" name="logout" role="button" type="submit">Logout</button>
 				</form>
 			</ul>
 
 		</div>
 	</nav>
 
-	<button id="btn"> Make it Fire </button>
-
 	<div id="angpau">
 		<img src="assets/img/angpauicon.jpg" alt="ang-pau" width="500" height="600"> 
 	</div>
-
-	<!-- <div id="gift-card">
-		<div class="actions">
-			<a href="#">
-				<button type="button" class="btn btn-default delete-image-btn pull-right">
-					<span class="glyphicon glyphicon-trash"></span>
-				</button>
-			</a>
-		</div>
-		<img src="assets/img/card-wish.jpg" alt="gift-card"> 
-	</div> -->
 
 	<!-- Modal -->
 	<div class="container">
@@ -168,20 +159,82 @@ button:focus {
 		</div>
 
 	</div>
-
-
 </body>
 
 <script>
 $("#angpau").click(function() {
-	$("#angpau").fadeOut(2000);
-	$("#imgModel").modal("show");
-	$("#gift-card").fadeIn(2000);
+
+	var fire = setInterval('firework()', 1000);
+
+	setTimeout(function(){ 
+		clearInterval(fire); 
+		$("#angpau").fadeOut(2000);
+		$("#imgModel").modal("show");
+		$("#gift-card").fadeIn(2000);
+	}, 3500);
+
+	
 });
 
 $("#return").click(function () {
 	$("#angpau").fadeIn(1000);
 });
 
+function firework(){
+	const btn = document.getElementById('angpau');
+
+	btn.addEventListener('click', () => {
+		const particles = [];
+		const color = randomColor();
+		
+		const particle = document.createElement('span');
+		particle.classList.add('particle', 'move');
+		
+		const { x, y } = randomLocation();
+		particle.style.setProperty('--x', x);
+		particle.style.setProperty('--y', y);
+		particle.style.background = color;
+		
+		btn.appendChild(particle);
+		
+		particles.push(particle);
+		
+		setTimeout(() => {
+		
+			for(let i=0; i<100; i++) {
+				const innerP = document.createElement('span');
+				innerP.classList.add('particle', 'move');
+				innerP.style.transform = `translate(${x}, ${y})`;
+
+				const xs = Math.random() * 200 - 100 + 'px';
+				const ys = Math.random() * 200 - 100 + 'px';
+				innerP.style.setProperty('--x', `calc(${x} + ${xs})`);
+				innerP.style.setProperty('--y', `calc(${y} + ${ys})`);
+				innerP.style.animationDuration = Math.random() * 300 + 200 + 'ms';
+				innerP.style.background = color;
+				
+				btn.appendChild(innerP);
+				particles.push(innerP)
+			}
+			
+			setTimeout(() => {
+				particles.forEach(particle => {
+					particle.remove();
+				})
+			}, 1000)
+		}, 1000);
+	});
+}
+
+function randomLocation() {
+	return {
+		x: Math.random() * window.innerWidth - window.innerWidth / 2 + 'px',
+		y: Math.random() * window.innerHeight - window.innerHeight / 2 + 'px',
+	}
+}
+
+function randomColor() {
+	return `hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`;
+}
 
 </script>
