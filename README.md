@@ -1,3 +1,3 @@
 # NewYearGreeting
 
-A new year greeting static web pages
+A new year greeting static web pages.
